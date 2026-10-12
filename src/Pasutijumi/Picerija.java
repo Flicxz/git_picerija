@@ -34,6 +34,8 @@ public class Picerija {
 			System.out.println("\nPieejamās darbības:\n" 
 					+ "1 - reģistrēt pasūtījumu\n" 
 					+ "2 - Labot pasūtījumu\n"
+					+ "3 - Ierakstīt failā\n"
+					+ "4 - Nolasīt no faila\n"
 					+ "x - Apturēt programmu\n");
 					
 			System.out.print("Tava izvēle: ");
@@ -43,6 +45,8 @@ public class Picerija {
 			switch(izv) {
 			case '1': Pasutijums.registretPasutijumu(); break;
 			case '2': Pasutijums.labotPasutijumu(); break;
+			case '3': Pasutijums.ierakstitFaila(); break;
+			case '4': Pasutijums.nolasitFailu(); break;
 			case 'x' :System.out.println("Programma apturēta!"); break;
 			default: System.out.println("Darbība nepastāv!");
 				
