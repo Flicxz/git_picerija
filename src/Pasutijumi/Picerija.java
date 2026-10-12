@@ -7,17 +7,13 @@ public class Picerija {
 	static int r = 0;
 	public static String virknesParbaude(String teksts, String mainigais) {
 	do {
-		if(r >= 1) {
-		System.out.println("Nepareizi ievadīti dati!");
-		}
 		System.out.print(teksts);
-		r++;
-		while(!scan.hasNextLine()) {
+		while(scan.hasNextInt()) {
 		System.out.print(teksts);
 		scan.next();
 		}
 		mainigais = scan.nextLine();
-	} while(mainigais.matches(mainigais));
+	} while(mainigais.matches("#$%^&*!()<>"));
 		
 		return mainigais; 
 	}
@@ -33,8 +29,26 @@ public class Picerija {
 		return mainigais;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		char izv;
+		do {
+			System.out.println("\nPieejamās darbības:\n" 
+					+ "1 - reģistrēt pasūtījumu\n" 
+					+ "2 - Labot pasūtījumu\n"
+					+ "x - Apturēt programmu\n");
+					
+			System.out.print("Tava izvēle: ");
+			izv = scan.next().charAt(0);
+			izv = Character.toLowerCase(izv);
+			
+			switch(izv) {
+			case '1': Pasutijums.registretPasutijumu(); break;
+			case '2': Pasutijums.labotPasutijumu(); break;
+			case 'x' :System.out.println("Programma apturēta!"); break;
+			default: System.out.println("Darbība nepastāv!");
+				
+			}
+		} while (izv != 'x');
+		
+		scan.close();
 	}
-
 }
